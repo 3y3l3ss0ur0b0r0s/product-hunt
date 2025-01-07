@@ -1,15 +1,32 @@
-<div id="cardsContainer">
-  <div *ngFor="let product of products">
-    <div class="card">
-      <div class="card-left">
-        <div class="product-title">{{product.get('title')}}</div>
-        <div>Upvotes: {{product.get('upvotes')}}</div>
-        <div>Downvotes: {{product.get('downvotes')}}</div>
-      </div>
-      <div class="card-right">
-        <button id="upvoteButton"><i class="fa-solid fa-circle-up"></i></button>
-        <button id="downvoteButton"><i class="fa-solid fa-circle-down"></i></button>
+<div id="mainContainer">
+  <div id="cardsContainer">
+    <div *ngFor="let product of products">
+      <div class="card">
+        <div class="card-left">
+          <div class="product-title">{{product.get('title')}}</div>
+          <div class="posted-date">{{product.get('posted') | date: 'MM/dd/yyy h:mm a'}}</div>
+        </div>
+        <div class="card-right">
+          <div *ngIf="product.get('upvotes') != undefined"class="vote-section upvote-section">
+            <button class="upvote-button" (click)="vote(product.get('title'), 'upvote')"><fa-icon [icon]="upArrow"></fa-icon></button>
+            <div class="upvote-count">{{product.get('upvotes')}}</div>
+          </div>
+          <div *ngIf="product.get('downvotes') != undefined" class="vote-section downvote-section">
+            <button class="downvote-button" (click)="vote(product.get('title'), 'downvote')"><fa-icon [icon]="downArrow"></fa-icon></button>
+            <div class="downvote-count">{{product.get('downvotes')}}</div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div id="sortOptions">
+    <label for="sortMethod">Sort By:</label>
+    <select [value]="sortMethod" name="sortMethod" id="sortMethod" (change)="handleSortMethodChange($event)">
+      <option value="newest" selected>Newest</option>
+      <option value="highestUpvoteDownvoteRatio">Highest Upvote to Downvote Ratio</option>
+      <option value="mostUpvotes">Most Upvotes</option>
+      <option value="leastDownvotes">Least Downvotes</option>
+      <option value="highestNetUpvotes">Highest Net Upvotes</option>
+    </select>
   </div>
 </div>

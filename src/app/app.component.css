@@ -1,3 +1,9 @@
+#mainContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+}
+
 .card {
     background-color: white;
     width: fit-content;
@@ -11,9 +17,72 @@
 .product-title {
     width: 300px;
     font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.posted-date {
+    color: #777;
+    font-size: 0.9em;
+    background-color: #ddd;
+    width: fit-content;
+    padding: 2px 10px;
+    border-radius: 12px;
 }
 
 .card-right {
     border-left: 1px solid #aaa;
     padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    border: none;
+    background: none;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.8em;
+}
+
+.vote-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.06, 1.06);
+    filter: brightness(120%);
+}
+
+button:active {
+    cursor: pointer;
+    transform: scale(0.94, 0.94);
+    filter: brightness(80%);
+}
+
+.upvote-section * {
+    color: rgb(49, 163, 49);   
+}
+
+.downvote-section * {
+    color: rgb(199, 47, 47);
+    font-weight: bold;
+}
+
+#sortOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1.1em;
+    color: white;
+}
+
+select {
+    font-size: 1.1em;
+    width: fit-content;
+    background-color: #fff;
 }
