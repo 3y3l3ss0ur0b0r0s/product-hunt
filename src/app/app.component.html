@@ -7,7 +7,7 @@
           <div class="posted-date">{{product.get('posted') | date: 'MM/dd/yyy h:mm a'}}</div>
         </div>
         <div class="card-right">
-          <div *ngIf="product.get('upvotes') != undefined"class="vote-section upvote-section">
+          <div *ngIf="product.get('upvotes') != undefined" class="vote-section upvote-section">
             <button class="upvote-button" (click)="vote(product.get('title'), 'upvote')"><fa-icon [icon]="upArrow"></fa-icon></button>
             <div class="upvote-count">{{product.get('upvotes')}}</div>
           </div>
@@ -21,7 +21,7 @@
   </div>
   <div id="sortOptions">
     <label for="sortMethod">Sort By:</label>
-    <select [value]="sortMethod" name="sortMethod" id="sortMethod" (change)="handleSortMethodChange($event)">
+    <select name="sortMethod" id="sortMethod" (change)="handleSortMethodChange($event)">
       <option value="newest" selected>Newest</option>
       <option value="highestUpvoteDownvoteRatio">Highest Upvote to Downvote Ratio</option>
       <option value="mostUpvotes">Most Upvotes</option>
