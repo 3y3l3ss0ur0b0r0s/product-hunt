@@ -1,0 +1,19 @@
+.card {
+    background-color: white;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.product-title {
+    width: 300px;
+    font-weight: bold;
+}
+
+.card-right {
+    border-left: 1px solid #aaa;
+    padding-left: 20px;
+}
