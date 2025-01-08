@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Pipe } from '@angular/core';
 import { NgFor, NgIf, DatePipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCircleArrowUp, faCircleArrowDown } from '@fortawesome/free-solid-svg-icons';
@@ -39,9 +39,12 @@ export class AppComponent {
       .then(response => response.json())
       .then(json => {
         this.products = [];
+        console.log(json);
         json.forEach((product: any) => {
           let newProduct = new Map([
+            ['image', product['image']],
             ['title', product['title']],
+            ['description', product['description']],
             ['upvotes', Math.floor(Math.random() * 300)],
             ['downvotes', Math.floor(Math.random() * 300)],
             ['posted', this.getRandomDate(new Date('2025-01-01T00:00:00.0Z'), new Date())]
